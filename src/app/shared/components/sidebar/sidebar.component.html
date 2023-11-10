@@ -1,0 +1,29 @@
+<h2>MENU </h2>
+<div class="row">
+
+
+<ul class="list-group">
+  <li routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item">
+    Home Page
+  </li>
+  <li routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="list-group-item">
+    About Page
+  </li>
+
+  <li routerLink="/contacts" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+    class="list-group-item">
+    Contactos
+  </li>
+
+  <li *ngIf="!this.currentUser" routerLink="/auth/login" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}" class="list-group-item">
+    Login
+  </li>
+  <br>
+  <li *ngIf="!!this.currentUser" class="list-group-item"><a (click)="this.emitLogout()">Logout</a></li>
+</ul>  
+</div>
+
+<div class="row">
+  <p>{{this.currentUser?.email}}</p>
+</div>
